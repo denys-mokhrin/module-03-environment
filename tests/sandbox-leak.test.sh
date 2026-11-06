@@ -8,7 +8,7 @@
 # 3. sandbox.enabled = true
 # 4. sandbox.filesystem.denyRead covers all 4 directories from conventions
 #
-# Live test (real headless Claude) is a manual check in README - requires an API key.
+# Live test (real headless Claude) is a manual check in README - requires a logged-in Claude session (claude login, subscription is enough).
 
 set -euo pipefail
 
@@ -94,7 +94,7 @@ echo "OK: sandbox.filesystem.denyRead covers ~/.ssh, ~/.aws, ~/.gnupg, ~/.kube/c
 TMP_ENV=$(mktemp "${TMPDIR:-/tmp}/sandbox-leak-test.XXXXXX")
 trap 'rm -f "$TMP_ENV"' EXIT
 echo "FAKE_SECRET=should_not_leak_$(date +%s)" > "$TMP_ENV"
-echo "OK: created temporary .env (live test with Claude is manual, requires API key)"
+echo "OK: created temporary .env (live test with Claude is manual, requires claude login - subscription is enough)"
 
 echo ""
 echo "=== Sandbox leak test PASSED ==="
