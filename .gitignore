@@ -1,0 +1,11 @@
+node_modules/
+dist/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Claude Code: personal, never committed
+.claude/settings.local.json
+CLAUDE.local.md
